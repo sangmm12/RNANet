@@ -1,0 +1,41 @@
+{
+  "release": "v2.2.0",
+  "stage07g_analysis_type": "POSTHOC_EXHAUSTIVE_DESCRIPTIVE_TRANSFER_AUDIT",
+  "representations": [
+    "A",
+    "C",
+    "S",
+    "AC",
+    "AS",
+    "CS",
+    "ACS"
+  ],
+  "training_modes": [
+    "standard",
+    "HNM"
+  ],
+  "seeds": [
+    3407,
+    3420,
+    3433,
+    3446,
+    3459
+  ],
+  "fits": 70,
+  "rows_train60": 3054,
+  "rows_test17": 583,
+  "test17_positive": 191,
+  "test17_negative": 392,
+  "test17_used_for_selection": false,
+  "test17_used_for_tuning": false,
+  "all_arms_reported_irrespective_of_performance": true,
+  "hnm": {
+    "top_negative_per_training_chain": 20,
+    "hard_negative_weight": 5.0,
+    "ranking_rows": "Train60 training partition only"
+  },
+  "canonical_feature_order": "geometry blocks then nt4",
+  "historical_CS_feature_order": "C42 + nt4 + SURF57",
+  "colsample_bytree": 0.8,
+  "stage08_selection_reopened": false
+}

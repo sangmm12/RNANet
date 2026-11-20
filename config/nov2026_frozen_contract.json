@@ -1,0 +1,105 @@
+{
+  "contract_version": "2026-11-17",
+  "not_included": [
+    "full raw PDB/mmCIF corpus",
+    "full 6.25-million-row frozen ligand matrix",
+    "five Stage08D binary model checkpoints",
+    "all third-party model dependencies"
+  ],
+  "r102_rotation": {
+    "chains": 12,
+    "frozen_core_model": true,
+    "frozen_seed": 3407,
+    "has_retrained_model": false,
+    "positive_labels": 30,
+    "random_rotations": 3,
+    "scientific_rotation_invariance": false,
+    "test_residues": 2208
+  },
+  "r2_ablation": {
+    "candidates": {
+      "C_FM": 100,
+      "C_ONLY": 45,
+      "FM_ONLY": 100
+    },
+    "distance": "sqrt((67/33)*||Z_C(a)-Z_C(b)||_2^2 + ||Z_F(a)-Z_F(b)||_2^2)",
+    "distance_percentile": 20,
+    "evaluation_topK": 20,
+    "geometry_weight_for_C_FM": 2.0303030303030303,
+    "hub_warning": "All 11 high-support C_ONLY Top-20 pairs involve 8RDV_V",
+    "kNN": 100,
+    "minimum_nt": 20,
+    "n_chains_for_normalization": 1406,
+    "n_chains_for_search": 745,
+    "new_matched_null_p_values": false,
+    "score": "(1-Jaccard3)/(distance+1e-9)",
+    "sequence_jaccard_max": 0.35,
+    "topN": 100
+  },
+  "r2_rotation": {
+    "chains": 12,
+    "feature_dimensions": 33,
+    "n_feature_comparisons": 1188,
+    "rotations_per_chain": 3,
+    "sensitive_comparisons": 431,
+    "sensitive_families": [
+      "integrability_err",
+      "kahler_err"
+    ],
+    "strict_rotation_invariance": false
+  },
+  "representation_distinction": {
+    "frozen_retrieval_chain_level": {
+      "CY-A": 34,
+      "CY-A+CY-C": 67,
+      "CY-A+CY-C+SURF": 124,
+      "CY-C": 33,
+      "CY-C+SURF": 90,
+      "CY-C_base_fields": [
+        "ContactCount",
+        "ContactOrder",
+        "B_avg"
+      ],
+      "CY-C_scales": [
+        4,
+        12,
+        20,
+        28,
+        36,
+        44
+      ],
+      "RNA-FM": 640,
+      "SURF": 57
+    },
+    "residue_level": {
+      "CY-A": 46,
+      "CY-C": 42,
+      "CY-C_geometry_scales": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32
+      ],
+      "RNA_FM_used": false,
+      "SURF": 57
+    }
+  },
+  "source_records": {
+    "r102_frozen_core": "results/nov2026_r102/GATE_PUBLIC.json",
+    "r2_three_arm": "results/nov2026_r2/ablation/retrieval_contract.json",
+    "retrieval_1406": "RNANET_METHODS_FINAL_DETAIL_20261109 ablation_master_contract.json"
+  },
+  "stage04b_primary": {
+    "auxiliary_RNA_FM_used": true,
+    "candidate_sets_are_frozen": true,
+    "first_percentile": 20,
+    "kNN": 100,
+    "matched_nulls": true,
+    "n_common_chains": 1406,
+    "sequential_geo_fm_gates": true
+  }
+}
