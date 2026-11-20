@@ -1,0 +1,75 @@
+{
+  "stage": "Stage07_Test17_External_Benchmark",
+  "release": "v1.0.0_20260921",
+  "scope": "external_validation_only_primary_RNANet_unchanged",
+  "benchmark": {
+    "repository": "https://github.com/cschen-y/rna-small-molecule-review.git",
+    "branch": "main",
+    "subdir": "BindingSite",
+    "train_set": "Train60",
+    "test_set": "Test17",
+    "expected_train_chains": 60,
+    "expected_test_chains": 17,
+    "expected_test_nucleotides": 583,
+    "comparators": [
+      "RLBind",
+      "RNet",
+      "RBind",
+      "Rsite",
+      "Rsite2",
+      "RNAsite",
+      "RNABind",
+      "MultiModRLBP",
+      "MVRBind"
+    ]
+  },
+  "rnanet": {
+    "arms": [
+      "CY-C",
+      "CY-C+HNM"
+    ],
+    "feature_contract": "42D_CY-C_plus_4_nt_onehot_no_B_no_SURF",
+    "cyc_source_sha256": "ed699c3e416cf7afe43246a49d033ed8e67b260abec2ff3154896b14ad258c78",
+    "io_source_sha256": "0f4554f67d2770598c89491ef1fa28197c57ec5db087700299d042a4096429dc",
+    "seeds": [
+      3407,
+      3420,
+      3433,
+      3446,
+      3459
+    ],
+    "validation_fraction_of_Train60_chains": 0.1,
+    "test_tuning_forbidden": true,
+    "threshold_rule_for_thresholded_metrics": "fixed_0.5",
+    "primary_external_metric": "AUPR",
+    "secondary_external_metric": "AUC",
+    "hnm": {
+      "stage1": "CY-C XGBoost on training partition only",
+      "selection": "top-scoring negative nucleotides within each training RNA chain",
+      "top_hard_negatives_per_training_chain": 20,
+      "hard_negative_weight": 5.0,
+      "validation_and_Test17_never_used_for_hard_negative_selection": true
+    },
+    "xgboost": {
+      "n_estimators": 6000,
+      "learning_rate": 0.03,
+      "max_depth": 6,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "min_child_weight": 1.0,
+      "tree_method": "hist",
+      "eval_metric": "aucpr",
+      "early_stopping_rounds": 400
+    }
+  },
+  "reporting": {
+    "do_not_replace_internal_primary": true,
+    "external_benchmark_label": "orthogonal external validation",
+    "finalization_requires_all_9_comparator_full_runs": true,
+    "smoke_runs_forbidden_in_manuscript_table": true,
+    "cross_method_headline_metric": "AUC",
+    "benchmark_native_AUPR": "supporting_only_unless_metric_implementation_audit_is_uniform",
+    "thresholded_metrics": "supplementary_only_due_to_method_specific_thresholding"
+  }
+}

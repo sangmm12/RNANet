@@ -1,0 +1,25 @@
+{
+  "base_chains": 1467,
+  "surf_chains": 1406,
+  "common_chains": 1406,
+  "coverage": 0.9584185412406271,
+  "dimensions": {
+    "A": 34,
+    "C": 33,
+    "AC": 67,
+    "S": 57,
+    "CS": 90,
+    "ACS": 124,
+    "FM": 640
+  },
+  "variants": {
+    "C": 33,
+    "AC": 67,
+    "S": 57,
+    "CS": 90,
+    "ACS": 124
+  },
+  "fm_dim": 640,
+  "same_common_universe_for_all_variants": true,
+  "gate_pass": true
+}
